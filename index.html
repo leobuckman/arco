@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Finest String Instruments - Professional String Instrument Collection</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+  <!-- Font Controls Panel -->
+  <div class='font-controls' role='region' aria-label='Font accessibility controls'>
+    <h3>Font Controls</h3>
+    <div class='font-control-group'>
+      <label for='font-size'>Size:</label>
+      <button onclick='decreaseFontSize()' aria-label='Decrease font size'>A-</button>
+      <button onclick='increaseFontSize()' aria-label='Increase font size'>A+</button>
+    </div>
+    <div class='font-control-group'>
+      <label for='font-family'>Font Family:</label>
+      <select id='font-family' onchange='changeFontFamily(this.value)' aria-label='Select font family'>
+        <option value='Arial, Helvetica, sans-serif' selected>Sans-serif</option>
+        <option value='Georgia, serif'>Serif</option>
+        <option value='Courier New, monospace'>Monospace</option>
+      </select>
+    </div>
+  </div>
+  
+  <header>
+    <nav role='navigation' aria-label='Main navigation' id='navigation'>
+      <a href='index.html' tabindex='0'>Home</a>
+      <a href='instruments.html' tabindex='0'>Instruments</a>
+      <a href='faq.html' tabindex='0'>FAQ</a>
+      <a href='about.html' tabindex='0'>About</a>
+    </nav>
+    <button class='font-toggle' onclick='toggleFontControls()' aria-label='Toggle font controls' aria-expanded='false'>Aa</button>
+  </header>
+  
+  <main role='main' id='main-content'>
+    <section class='hero-section' aria-labelledby='hero-heading'>
+      <img src='hero.png' alt='Collection of fine string instruments'>
+      <div class='hero-content'>
+        <h1 id='hero-heading'>Finest String Instruments</h1>
+        <p>Browse our collection of some of the most sought after string instruments. We have a range of instruments that are suitable for musicians at the professional level.</p>
+        <a href='instruments.html' class='cta-button' tabindex='0'>View Our Collection</a>
+      </div>
+    </section>
+    
+    <section class='testimonials-section' aria-labelledby='testimonials-heading'>
+      <h2 id='testimonials-heading'>Testimonials</h2>
+      <div class='testimonials-grid'>
+        <blockquote tabindex='0'>
+          <p>"I don't know how else I would have found my violin. The whole process was so seamless the whole way."</p>
+          <footer>- John Doe, Violinist</footer>
+        </blockquote>
+        <blockquote tabindex='0'>
+          <p>"Very grateful I found this company to connect me with my cello. The instrument and service was top-notch."</p>
+          <footer>- Jane Smith, Cellist</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+  
+  <footer role='contentinfo'>
+    <p>Contact Us: <a href='mailto:strings@gmail.com' tabindex='0'>strings@gmail.com</a></p>
+    <p>Social Media: <a href='https://instagram.com' target='_blank' tabindex='0'>Instagram</a></p>
+    <a href='#' tabindex='0'>ToS</a>
+  </footer>
+  
+  <script>
+    // Toggle font controls panel
+    function toggleFontControls() {
+      const controls = document.querySelector('.font-controls');
+      const button = document.querySelector('.font-toggle');
+      const isExpanded = controls.classList.contains('show');
+      
+      if (isExpanded) {
+        controls.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        controls.classList.add('show');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+    
+    // Close font controls when clicking outside
+    document.addEventListener('click', function(event) {
+      const controls = document.querySelector('.font-controls');
+      const button = document.querySelector('.font-toggle');
+      
+      if (!controls.contains(event.target) && !button.contains(event.target)) {
+        controls.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Font size control functions
+    function increaseFontSize() {
+      const currentSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--font-size'));
+      const newSize = Math.min(currentSize + 2, 32); // Max 32px
+      document.documentElement.style.setProperty('--font-size', newSize + 'px');
+      saveFontPreferences();
+    }
+    
+    function decreaseFontSize() {
+      const currentSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--font-size'));
+      const newSize = Math.max(currentSize - 2, 12); // Min 12px
+      document.documentElement.style.setProperty('--font-size', newSize + 'px');
+      saveFontPreferences();
+    }
+    
+    // Font family control function
+    function changeFontFamily(fontFamily) {
+      document.documentElement.style.setProperty('--font-family', fontFamily);
+      saveFontPreferences();
+    }
+    
+    // Save font preferences to localStorage
+    function saveFontPreferences() {
+      const fontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size');
+      const fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--font-family');
+      localStorage.setItem('fontSize', fontSize);
+      localStorage.setItem('fontFamily', fontFamily);
+    }
+    
+    // Load font preferences from localStorage
+    function loadFontPreferences() {
+      const savedFontSize = localStorage.getItem('fontSize');
+      const savedFontFamily = localStorage.getItem('fontFamily');
+      
+      if (savedFontSize) {
+        document.documentElement.style.setProperty('--font-size', savedFontSize);
+      }
+      
+      if (savedFontFamily) {
+        document.documentElement.style.setProperty('--font-family', savedFontFamily);
+        // Update the select dropdown to match
+        const select = document.getElementById('font-family');
+        if (select) {
+          select.value = savedFontFamily;
+        }
+      }
+    }
+    
+    // Load preferences when page loads
+    document.addEventListener('DOMContentLoaded', loadFontPreferences);
+    
+    // Keyboard shortcuts for font controls
+    document.addEventListener('keydown', function(event) {
+      // Ctrl/Cmd Plus to increase font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '=') {
+        event.preventDefault();
+        increaseFontSize();
+      }
+      // Ctrl/Cmd Minus to decrease font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '-') {
+        event.preventDefault();
+        decreaseFontSize();
+      }
+      // Ctrl/Cmd 0 to reset font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '0') {
+        event.preventDefault();
+        document.documentElement.style.setProperty('--font-size', '16px');
+        saveFontPreferences();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+I chose to implement the first two features described in this week's Unit. That includes: 1. A font size changer, and 2. A font type changer. Both of these are accessible via the Aa button in the header. A box on the top left of the page should appear, allowing the user to change the font as they desire.
