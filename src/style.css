@@ -1,0 +1,529 @@
+
+/* Cross-browser compatibility */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure consistent rendering across browsers */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Font Accessibility Controls */
+:root {
+  --font-size: 16px;
+  --font-family: Arial, Helvetica, sans-serif;
+  --focus-outline: 2px solid #D2691E;
+  --focus-offset: 2px;
+}
+
+/* Font Adjuster in Header */
+.font-toggle {
+  background: transparent;
+  color: #333;
+  border: none; 
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.font-toggle:hover {
+  background: #D2691E;
+  color: white;
+}
+
+.font-toggle:focus {
+  outline: none; 
+}
+
+.font-toggle.active {
+  background: #D2691E;
+  color: white;
+}
+
+/* Font Controls Panel */
+.font-controls {
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  background: #D2691E;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  z-index: 10002;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.font-controls.show {
+  display: flex;
+}
+
+.font-controls h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.font-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.font-control-group label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.font-control-group button {
+  background: #ffffff;
+  color: #333;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  min-width: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.font-control-group button:hover {
+  background: #f0f0f0;
+}
+
+.font-control-group button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+}
+
+.font-control-group select {
+  background: #ffffff;
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.font-control-group select:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+}
+
+/* Apply font variables to body */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: 0;
+  padding-top: 80px; 
+  padding-bottom: 60px;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Ensure images work across browsers */
+img {
+  max-width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Ensure flexbox works in older browsers */
+.hero-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  gap: 2em;
+  margin-bottom: 3em;
+  padding: 2em;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Ensure grid works in older browsers */
+.testimonials-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+nav a {
+  margin: 0 1em;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  /* Ensure minimum touch target size */
+  padding: 8px 12px;
+  min-height: 44px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: var(--font-size);
+}
+
+.cta-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-block;
+  background-color: #D2691E;
+  color: white;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  -webkit-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  margin-top: 1em;
+  /* Ensure minimum touch target size */
+  min-height: 44px;
+  min-width: 44px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: var(--font-size);
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 2em;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffefe8;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+/* Ensure focus indicators work across browsers */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #D2691E;
+  outline-offset: 2px;
+  border-radius: 4px;
+  /* Ensure focus is visible in all browsers */
+  -webkit-box-shadow: 0 0 0 2px #D2691E;
+  box-shadow: 0 0 0 2px #D2691E;
+}
+
+/* Header and footer styles */
+header, footer {
+  background-color: #ffefe8;
+  color: #000;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+header {
+  top: 0;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px; 
+}
+
+footer {
+  bottom: 0;
+  padding: 0.2em; 
+  min-height: 20px; 
+}
+
+/* Ensure main content has proper spacing */
+main {
+  max-width: 1200px; 
+  margin: auto;
+  padding: 2em 1em; 
+  margin-top: 2em; 
+  margin-bottom: 1em;
+  /* Ensure content doesn't overflow at high zoom */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Navigation styles */
+nav a {
+  margin: 0 1em;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  padding: 8px 12px;
+  min-height: 44px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: var(--font-size);
+}
+
+nav a:hover {
+  color: #D2691E;
+}
+
+nav a:focus {
+  color: #D2691E;
+  text-decoration: underline;
+}
+
+.cta-button:focus {
+  background-color: #CD853F;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #D2691E;
+}
+
+footer a:focus {
+  background-color: #D2691E;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+  text-decoration: underline;
+}
+
+blockquote:focus {
+  outline: 2px solid #D2691E;
+  outline-offset: 2px;
+  background-color: #fff8f0;
+}
+
+/* Focus for instrument sections */
+div[role='button']:focus {
+  outline: 2px solid #D2691E;
+  outline-offset: 4px;
+  border-radius: 8px;
+  background-color: #fff8f0;
+  cursor: pointer;
+}
+
+div[role='button']:hover {
+  background-color: #fff8f0;
+  border-radius: 8px;
+}
+
+/* Ensure instrument sections are keyboard accessible */
+div[role='button'] {
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+/* Heading styles */
+h1 {
+  font-size: calc(var(--font-size) * 2.5);
+  margin-bottom: 0.5em;
+  color: #8B4513;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: calc(var(--font-size) * 2);
+  margin-bottom: 1em;
+  color: #8B4513;
+  font-weight: 400;
+  border-bottom: 2px solid #ffefe8;
+  padding-bottom: 0.5em;
+}
+
+/* Paragraph styles */
+p {
+  margin-bottom: 1em;
+  color: #555;
+  font-size: calc(var(--font-size) * 1.1);
+}
+
+/* Hero section styling */
+.hero-section img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+/* Button hover states */
+.cta-button:hover {
+  background-color: #CD853F;
+}
+
+/* Testimonials section */
+.testimonials-section {
+  margin-top: 3em;
+}
+
+/* Blockquote styles */
+blockquote {
+  margin: 0;
+  padding: 1.5em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #D2691E;
+  position: relative;
+  font-size: var(--font-size);
+  line-height: 1.6;
+}
+
+blockquote p {
+  margin: 0 0 1em 0;
+  font-style: italic;
+  font-size: calc(var(--font-size) * 1.1);
+  color: #555;
+}
+
+blockquote footer {
+  position: static;
+  background: none;
+  font-style: normal;
+  font-weight: 500;
+  padding: 0;
+  text-align: left;
+  font-size: calc(var(--font-size) * 0.9);
+}
+
+/* Footer link styles */
+footer a {
+  color: #333;
+  text-decoration: none;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  /* Ensure minimum touch target size */
+  padding: 4px 8px;
+  min-height: 44px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: var(--font-size);
+}
+
+footer a:hover {
+  color: #666;
+}
+
+/* High Magnification Support (400% zoom) */
+@media (min-resolution: 2dppx) {
+  :root {
+    --focus-outline: 1px solid #0066cc;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-section img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ensure navigation remains usable on mobile at high zoom */
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  nav a {
+    margin: 0.5em;
+    padding: 12px 16px;
+  }
+
+  /* Responsive font controls */
+  .font-controls {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    min-width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .font-control-group {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Remove focus outlines from all header elements */
+header *:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+

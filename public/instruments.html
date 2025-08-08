@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Instruments</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+  <!-- Font Controls Panel -->
+  <div class='font-controls' role='region' aria-label='Font accessibility controls'>
+    <h3>Font Controls</h3>
+    <div class='font-control-group'>
+      <label for='font-size'>Size:</label>
+      <button onclick='decreaseFontSize()' aria-label='Decrease font size'>A-</button>
+      <button onclick='increaseFontSize()' aria-label='Increase font size'>A+</button>
+    </div>
+    <div class='font-control-group'>
+      <label for='font-family'>Font:</label>
+      <select id='font-family' onchange='changeFontFamily(this.value)' aria-label='Select font family'>
+        <option value='Arial, Helvetica, sans-serif'>Sans-serif</option>
+        <option value='Georgia, serif'>Serif</option>
+        <option value='Courier New, monospace'>Monospace</option>
+        <option value='Comic Sans MS, cursive'>Comic Sans</option>
+        <option value='Arial Black, sans-serif'>Arial Black</option>
+      </select>
+    </div>
+  </div>
+  
+  <header>
+    <nav role='navigation' aria-label='Main navigation' id='navigation'>
+      <a href='index.html' tabindex='0'>Home</a>
+      <a href='instruments.html' tabindex='0'>Instruments</a>
+      <a href='faq.html' tabindex='0'>FAQ</a>
+      <a href='about.html' tabindex='0'>About</a>
+    </nav>
+    <button class='font-toggle' onclick='toggleFontControls()' aria-label='Toggle font controls' aria-expanded='false'>Aa</button>
+  </header>
+  <main role='main' id='main-content'>
+    <nav class='jump-links' role='navigation' aria-label='Instrument categories' id='instrument-categories' style='position: fixed; top: 60px; left: 0; right: 0; background: white; padding: 20px 0; text-align: center; z-index: 1000;'>
+      <a href='#violins' tabindex='0' style='margin: 0 15px; text-decoration: none; color: #333;'>Violins</a>
+      <a href='#violas' tabindex='0' style='margin: 0 15px; text-decoration: none; color: #333;'>Violas</a>
+      <a href='#cellos' tabindex='0' style='margin: 0 15px; text-decoration: none; color: #333;'>Cellos</a>
+      <a href='#basses' tabindex='0' style='margin: 0 15px; text-decoration: none; color: #333;'>Double Basses</a>
+    </nav>
+    <section id='violins'>
+      <h2 style='text-align: center;'>Violins</h2>
+      <div style='display: flex; gap: 20px; justify-content: center;'>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Stradivarius violin from 1758, priced at $200,000'>
+          <img src='instruments/violin1.jpg' alt='Violin 1' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Stradivarius</p>
+              <p style='margin: 0;'>1758</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$200,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Becker violin from 1854, priced at $75,000'>
+          <img src='instruments/violin2.jpg' alt='Violin 2' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Becker</p>
+              <p style='margin: 0;'>1854</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$75,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Gasparo violin from 1687, priced at $250,000'>
+          <img src='instruments/violin3.jpg' alt='Violin 3' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Gasparo</p>
+              <p style='margin: 0;'>1687</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$250,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id='violas'>
+      <h2 style='text-align: center;'>Violas</h2>
+      <div style='display: flex; gap: 20px; justify-content: center;'>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Unknown Maker viola from circa 1800, priced at $50,000'>
+          <img src='instruments/viola1.jpg' alt='Viola 1' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Unknown Maker</p>
+              <p style='margin: 0;'>Circa 1800</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$50,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Stradivarius viola from 1753, priced at $300,000'>
+          <img src='instruments/viola2.jpg' alt='Viola 2' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Stradivarius</p>
+              <p style='margin: 0;'>1753</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$300,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View French Maker viola from 1843, priced at $80,000'>
+          <img src='instruments/viola3.jpg' alt='Viola 3' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>French Maker</p>
+              <p style='margin: 0;'>1843</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$80,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id='cellos'>
+      <h2 style='text-align: center;'>Cellos</h2>
+      <div style='display: flex; gap: 20px; justify-content: center;'>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Unknown Italian cello from 1739, priced at $150,000'>
+          <img src='instruments/cello1.jpg' alt='Cello 1' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Unknown Italian</p>
+              <p style='margin: 0;'>1739</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$150,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Stradivarius cello from 1764, priced at $400,000'>
+          <img src='instruments/cello2.jpg' alt='Cello 2' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Stradivarius</p>
+              <p style='margin: 0;'>1764</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$400,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Guandili cello from 1734, priced at $200,000'>
+          <img src='instruments/cello3.jpg' alt='Cello 3' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Guandili</p>
+              <p style='margin: 0;'>1734</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$200,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id='basses'>
+      <h2 style='text-align: center;'>Double Basses</h2>
+      <div style='display: flex; gap: 20px; justify-content: center;'>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Hungarian Bass from 1830, priced at $130,000'>
+          <img src='instruments/bass1.jpg' alt='Double Bass 1' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Hungarian Bass</p>
+              <p style='margin: 0;'>1830</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$130,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View British Maker double bass from 1870, priced at $120,000'>
+          <img src='instruments/bass2.jpg' alt='Double Bass 2' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>British Maker</p>
+              <p style='margin: 0;'>1870</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$120,000</p>
+            </div>
+          </div>
+        </div>
+        <div style='text-align: center;' tabindex='0' role='button' aria-label='View Spanish Pear Bass from 1750, priced at $40,000'>
+          <img src='instruments/bass3.jpg' alt='Double Bass 3' style='width: 300px; height: 300px; object-fit: cover;'>
+          <div style='display: flex; justify-content: space-between; margin-top: 10px;'>
+            <div style='text-align: left;'>
+              <p style='margin: 0;'>Spanish Pear Bass</p>
+              <p style='margin: 0;'>1750</p>
+            </div>
+            <div style='text-align: right;'>
+              <p style='margin: 0;'>$40,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer role='contentinfo' style='display: flex; justify-content: center; gap: 20px; align-items: center;'>
+    <p>Contact Us: <a href='mailto:strings@gmail.com' tabindex='0'>strings@gmail.com</a></p>
+    <p>Social Media: <a href='https://instagram.com' target='_blank' tabindex='0'>Instagram</a></p>
+    <a href='#' tabindex='0'>ToS</a>
+  </footer>
+  
+  <script>
+    // Toggle font controls panel
+    function toggleFontControls() {
+      const controls = document.querySelector('.font-controls');
+      const button = document.querySelector('.font-toggle');
+      const isExpanded = controls.classList.contains('show');
+      
+      if (isExpanded) {
+        controls.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        controls.classList.add('show');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+    
+    // Close font controls when clicking outside
+    document.addEventListener('click', function(event) {
+      const controls = document.querySelector('.font-controls');
+      const button = document.querySelector('.font-toggle');
+      
+      if (!controls.contains(event.target) && !button.contains(event.target)) {
+        controls.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Font size control functions
+    function increaseFontSize() {
+      const currentSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--font-size'));
+      const newSize = Math.min(currentSize + 2, 32); // Max 32px
+      document.documentElement.style.setProperty('--font-size', newSize + 'px');
+      saveFontPreferences();
+    }
+    
+    function decreaseFontSize() {
+      const currentSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--font-size'));
+      const newSize = Math.max(currentSize - 2, 12); // Min 12px
+      document.documentElement.style.setProperty('--font-size', newSize + 'px');
+      saveFontPreferences();
+    }
+    
+    // Font family control function
+    function changeFontFamily(fontFamily) {
+      document.documentElement.style.setProperty('--font-family', fontFamily);
+      saveFontPreferences();
+    }
+    
+    // Save font preferences to localStorage
+    function saveFontPreferences() {
+      const fontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size');
+      const fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--font-family');
+      localStorage.setItem('fontSize', fontSize);
+      localStorage.setItem('fontFamily', fontFamily);
+    }
+    
+    // Load font preferences from localStorage
+    function loadFontPreferences() {
+      const savedFontSize = localStorage.getItem('fontSize');
+      const savedFontFamily = localStorage.getItem('fontFamily');
+      
+      if (savedFontSize) {
+        document.documentElement.style.setProperty('--font-size', savedFontSize);
+      }
+      
+      if (savedFontFamily) {
+        document.documentElement.style.setProperty('--font-family', savedFontFamily);
+        // Update the select dropdown to match
+        const select = document.getElementById('font-family');
+        if (select) {
+          select.value = savedFontFamily;
+        }
+      }
+    }
+    
+    // Load preferences when page loads
+    document.addEventListener('DOMContentLoaded', loadFontPreferences);
+    
+    // Keyboard shortcuts for font controls
+    document.addEventListener('keydown', function(event) {
+      // Ctrl/Cmd Plus to increase font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '=') {
+        event.preventDefault();
+        increaseFontSize();
+      }
+      // Ctrl/Cmd Minus to decrease font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '-') {
+        event.preventDefault();
+        decreaseFontSize();
+      }
+      // Ctrl/Cmd 0 to reset font size
+      if ((event.ctrlKey || event.metaKey) && event.key === '0') {
+        event.preventDefault();
+        document.documentElement.style.setProperty('--font-size', '16px');
+        saveFontPreferences();
+      }
+    });
+  </script>
+</body>
+</html>
